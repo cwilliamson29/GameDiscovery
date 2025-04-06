@@ -1,4 +1,4 @@
-import {Box, Flex, HStack, Image, Text} from "@chakra-ui/react";
+import {Flex, HStack, Image, Text} from "@chakra-ui/react";
 import logo from '../assets/logo.webp'
 import {ColorModeButton} from "@/components/ui/color-mode.tsx";
 

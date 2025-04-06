@@ -13,10 +13,10 @@ function App() {
             <GridItem area="nav">
                 <NavBar/>
             </GridItem>
-            <GridItem area="aside" bg="gold" display={{base: "none", lg: "block"}}>
+            <GridItem area="aside" bg="" display={{base: "none", lg: "block"}}>
                 asdf
             </GridItem>
-            <GridItem area="main" bg="blue">
+            <GridItem area="main" bg="">
                 <GameGrid/>
             </GridItem>
         </Grid>
