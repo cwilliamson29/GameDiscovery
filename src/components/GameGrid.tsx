@@ -1,29 +1,13 @@
-import {useEffect, useState} from 'react'
-import apiClient from "@/services/apiClient.ts";
+import useGames from "@/hooks/useGames.ts";
+import {Text} from "@chakra-ui/react";
 
-interface Game {
-    id: number
-    name: string
-    released: string
-}
-
-interface FetchGamesResponse {
-    count: number
-    results: Game[]
-}
 
 function GameGrid() {
-    const [games, setGames] = useState<Game[]>([])
-    //const [error, setError] = useState('')
+    const {games, error} = useGames()
 
-    useEffect(() => {
-        //console.log(import.meta.env.VITE_API_KEY)
-        apiClient.get<FetchGamesResponse>("/games")
-            .then(res => setGames(res.data.results))
-            .catch(err => console.log(err))
-    }, []);
     return (
         <div>
+            {error && <Text>{error}</Text>}
             {games.map((game) => (
                 <div key={game.id}>
                     {game.name}
