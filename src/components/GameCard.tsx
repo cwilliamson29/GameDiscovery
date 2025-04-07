@@ -1,10 +1,7 @@
-import {FaWindows, FaPlatstation, FaXbox, FaApple, FaLinux, FaAndroid} from 'react-icons/fa'
 import {Game} from "@/hooks/useGames.ts";
 import {Card, Heading, Image} from "@chakra-ui/react";
 import PlatformIconList from "@/components/PlatformIconList.tsx";
-import {SiNintendo} from "react-icons/si";
-import {MdPhoneIphone} from "react-icons/md";
-import {BsGlobe} from "react-icons/bs";
+
 
 interface Props {
     game: Game;
