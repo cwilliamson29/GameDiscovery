@@ -1,5 +1,5 @@
 import useGenres from "@/hooks/useGenres.ts";
-import {Box, HStack, Image} from "@chakra-ui/react";
+import {Box, HStack, Image, Text} from "@chakra-ui/react";
 import getCroppedImageUrl from "@/services/image-url.ts";
 
 function GenreList() {
@@ -8,9 +8,9 @@ function GenreList() {
         <Box as="ul">
             {data.map((genre) =>
                 <li key={genre.id}>
-                    <HStack padding={1}>
+                    <HStack paddingY={1}>
                         <Image boxSize="32px" borderRadius={8} src={getCroppedImageUrl(genre.image_background)}/>
-                        {genre.name}
+                        <Text fontSize={'lg'}>{genre.name}</Text>
                     </HStack>
 
                 </li>)}
