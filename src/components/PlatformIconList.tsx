@@ -1,8 +1,8 @@
 import {Platform} from "@/hooks/useGames.ts";
 import {FaApple, FaLinux, FaPlaystation, FaWindows, FaXbox} from "react-icons/fa";
-import {MdPhoneIphone, MdCheckBoxOutlineBlank} from "react-icons/md";
+import {MdPhoneIphone} from "react-icons/md";
 import {BsGlobe, BsNintendoSwitch, BsAndroid2} from "react-icons/bs";
-import {Icon} from "@chakra-ui/react";
+import {HStack, Icon} from "@chakra-ui/react";
 import {Tooltip} from "@/components/ui/tooltip"
 import {IconType} from "react-icons";
 
@@ -22,42 +22,17 @@ function PlatformIconList({platforms}: Props) {
         web: BsGlobe,
         android: BsAndroid2
     }
-    const test = (val: string) => {
-        switch (val) {
-            case "pc":
-                return iconMap.pc
-            case "playstation":
-                return iconMap.playstation
-            case "xbox":
-                return iconMap.xbox
-            case "nintendo":
-                return iconMap.nintendo
-            case "mac":
-                return iconMap.mac
-            case "linux":
-                return iconMap.linux
-            case "ios":
-                return iconMap.ios
-            case "web":
-                return iconMap.web
-            case "android":
-                return iconMap.android
-            default:
-                return MdCheckBoxOutlineBlank
-        }
-    }
+
     return (
-        <>
+        <HStack marginY={1}>
             {platforms.map((p) => {
                 return (
                     <Tooltip key={p.id} content={p.name}>
-                        <Icon key={p.id} as={test(p.slug)}/>
+                        <Icon as={iconMap[p.slug]} color="gray.600"/>
                     </Tooltip>
-
-
                 )
             })}
-        </>
+        </HStack>
     )
 }
 
