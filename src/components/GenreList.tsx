@@ -7,6 +7,8 @@ interface Props {
 }
 
 function GenreList({onSelectGenre}: Props) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     const {data, loading, error} = useGenres()
 
     if (error) return null

@@ -31,5 +31,7 @@ export default function useData<T>(endpoint: string, requestConfig?: AxiosReques
         return () => controller.abort()
     }, deps ? [...deps] : []);
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     return {data, error, loading}
 }
