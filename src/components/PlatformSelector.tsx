@@ -4,7 +4,7 @@ import usePlatforms from "@/hooks/usePlatforms.ts";
 import {Platform} from "@/hooks/useGames.ts";
 
 interface Props {
-    onSelectPlatform: (platform: Platform) => void;
+    onSelectPlatform: (platform: Platform | null) => void;
     selectedPlatform: Platform | null;
 }
 
@@ -26,6 +26,7 @@ function PlatformSelector({onSelectPlatform, selectedPlatform}: Props) {
                 <Menu.Positioner>
                     <Menu.Content>
                         {data.map((plat: Platform) => <Menu.Item key={plat.id} value={plat.name} onSelect={() => onSelectPlatform(plat)}>{plat.name}</Menu.Item>)}
+                        <Menu.Item value={"Remove Platform"} onSelect={() => onSelectPlatform(null)}>Remove Platform</Menu.Item>
                     </Menu.Content>
                 </Menu.Positioner>
             </Portal>
