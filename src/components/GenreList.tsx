@@ -13,7 +13,7 @@ function GenreList({onSelectGenre}: Props) {
     if (loading) return <Spinner/>
     return (
         <Box as="ul">
-            {data.map((genre) =>
+            {data.map((genre: Genre) =>
                 <li key={genre.id}>
                     <HStack paddingY={1}>
                         <Image boxSize="32px" borderRadius={8} src={getCroppedImageUrl(genre.image_background)}/>

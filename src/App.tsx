@@ -9,7 +9,7 @@ import {Genre} from "@/hooks/useGenres.ts";
 
 function App() {
     const [selectedGenre, setSelectedGenre] = useState<Genre | null>(null);
-    console.log(selectedGenre);
+    //console.log(selectedGenre);
     return (
         <Grid templateAreas={{
             base: `"nav" "main"`,
@@ -24,10 +24,10 @@ function App() {
                 <NavBar/>
             </GridItem>
             <GridItem area="aside" bg="" display={{base: "none", lg: "block"}} paddingX={5}>
-                <GenreList onSelectGenre={setSelectedGenre}/>
+                <GenreList onSelectGenre={(genre) => setSelectedGenre(genre)}/>
             </GridItem>
             <GridItem area="main" bg="">
-                <GameGrid/>
+                <GameGrid selectedGenre={selectedGenre}/>
             </GridItem>
         </Grid>
     )
