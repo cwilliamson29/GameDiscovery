@@ -4,9 +4,10 @@ import getCroppedImageUrl from "@/services/image-url.ts";
 
 interface Props {
     onSelectGenre: (genre: Genre) => void;
+    selectedGenre: Genre | null;
 }
 
-function GenreList({onSelectGenre}: Props) {
+function GenreList({onSelectGenre, selectedGenre}: Props) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
     const {data, loading, error} = useGenres()
@@ -19,7 +20,7 @@ function GenreList({onSelectGenre}: Props) {
                 <li key={genre.id}>
                     <HStack paddingY={1}>
                         <Image boxSize="32px" borderRadius={8} src={getCroppedImageUrl(genre.image_background)}/>
-                        <Button fontSize={'lg'} variant="ghost" onClick={() => onSelectGenre(genre)}>{genre.name}</Button>
+                        <Button fontSize={'lg'} fontWeight={selectedGenre === genre ? "bold" : "normal"} variant="ghost" onClick={() => onSelectGenre(genre)}>{genre.name}</Button>
                     </HStack>
                 </li>)}
         </Box>
