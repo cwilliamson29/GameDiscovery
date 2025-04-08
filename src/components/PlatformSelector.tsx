@@ -3,20 +3,29 @@ import {BsChevronDown} from "react-icons/bs";
 import usePlatforms from "@/hooks/usePlatforms.ts";
 import {Platform} from "@/hooks/useGames.ts";
 
-function PlatformSelector() {
+interface Props {
+    onSelectPlatform: (platform: Platform) => void;
+    selectedPlatform: Platform | null;
+}
+
+function PlatformSelector({onSelectPlatform, selectedPlatform}: Props) {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-expect-error
     const {data, loading, error} = usePlatforms()
+
+    //console.log(selectedPlatform);
 
     if (error) return null
 
     return (
         <Menu.Root>
             <Menu.Trigger asChild>
-                <Button variant="outline" size="sm"><BsChevronDown/>Platform</Button>
+                <Button variant="outline" size="sm"><BsChevronDown/>{selectedPlatform !== null ? `Platform: ${selectedPlatform.name}` : "Platform"}</Button>
             </Menu.Trigger>
             <Portal>
                 <Menu.Positioner>
                     <Menu.Content>
-                        {data.map((plat: Platform) => <Menu.Item key={plat.id} value={plat.name}>{plat.name}</Menu.Item>)}
+                        {data.map((plat: Platform) => <Menu.Item key={plat.id} value={plat.name} onSelect={() => onSelectPlatform(plat)}>{plat.name}</Menu.Item>)}
                     </Menu.Content>
                 </Menu.Positioner>
             </Portal>
