@@ -1,4 +1,4 @@
-import {Game} from "@/hooks/useGames.ts";
+import {Game, Platform} from "@/hooks/useGames.ts";
 import {Card, Heading, HStack, Image} from "@chakra-ui/react";
 import PlatformIconList from "@/components/PlatformIconList.tsx";
 import CriticScore from "@/components/CriticScore.tsx";
@@ -8,9 +8,10 @@ import GameCardContainer from "@/components/GameCardContainer.tsx";
 
 interface Props {
     game: Game;
+    selectedPlatform: Platform | null;
 }
 
-const GameCard = ({game}: Props) => {
+const GameCard = ({game, selectedPlatform}: Props) => {
 
     return (
         <GameCardContainer>
@@ -19,7 +20,7 @@ const GameCard = ({game}: Props) => {
                 <Card.Body>
                     <Heading>{game.name}</Heading>
                     <HStack justifyContent="space-between">
-                        <PlatformIconList platforms={game.parent_platforms.map(p => p.platform)}/>
+                        <PlatformIconList platforms={game.parent_platforms.map(p => p.platform)} selectedPlatform={selectedPlatform}/>
                         <CriticScore score={game.metacritic}/>
                     </HStack>
 

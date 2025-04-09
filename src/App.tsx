@@ -14,6 +14,7 @@ function App() {
     const [selectedPlatorm, setSelectedPlatorm] = useState<Platform | null>(null);
 
     //console.log(selectedGenre);
+    //console.log(selectedPlatorm);
 
     return (
         <Grid templateAreas={{
@@ -33,7 +34,7 @@ function App() {
             </GridItem>
             <GridItem area="main" bg="">
                 <PlatformSelector onSelectPlatform={(platform) => setSelectedPlatorm(platform)} selectedPlatform={selectedPlatorm}/>
-                <GameGrid selectedGenre={selectedGenre}/>
+                <GameGrid selectedPlatform={selectedPlatorm} selectedGenre={selectedGenre}/>
             </GridItem>
         </Grid>
     )

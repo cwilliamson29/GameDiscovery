@@ -13,7 +13,7 @@ function PlatformSelector({onSelectPlatform, selectedPlatform}: Props) {
     // @ts-expect-error
     const {data, loading, error} = usePlatforms()
 
-    //console.log(selectedPlatform);
+    //console.log(data);
 
     if (error) return null
 

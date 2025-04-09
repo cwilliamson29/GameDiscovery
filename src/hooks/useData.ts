@@ -16,7 +16,7 @@ export default function useData<T>(endpoint: string, requestConfig?: AxiosReques
         const controller = new AbortController()
 
         setLoading(true)
-
+        //console.log(requestConfig)
         apiClient.get<FetchResponse<T>>(endpoint, {signal: controller.signal, ...requestConfig})
             .then(res => {
                 setData(res.data.results)
