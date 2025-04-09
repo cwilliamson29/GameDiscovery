@@ -1,13 +1,14 @@
 import {useEffect, useState} from "react";
 import apiClient from "@/services/apiClient.ts";
 import {AxiosRequestConfig, CanceledError} from "axios";
+import {GameQuery} from "@/App.tsx";
 
 interface FetchResponse<T> {
     count: number;
     results: T[]
 }
 
-export default function useData<T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?: any): FetchResponse<T> {
+export default function useData<T>(endpoint: string, requestConfig?: AxiosRequestConfig, deps?: GameQuery): FetchResponse<T> {
     const [data, setData] = useState<T[]>([])
     const [error, setError] = useState('')
     const [loading, setLoading] = useState(false)
@@ -29,6 +30,9 @@ export default function useData<T>(endpoint: string, requestConfig?: AxiosReques
             })
 
         return () => controller.abort()
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, deps ? [...deps] : []);
 
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment

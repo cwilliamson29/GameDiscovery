@@ -11,16 +11,17 @@ interface Props {
 function PlatformSelector({onSelectPlatform, selectedPlatform}: Props) {
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-expect-error
-    const {data, loading, error} = usePlatforms()
+    const {data, error} = usePlatforms()
 
     //console.log(data);
+    //console.log(selectedPlatform)
 
     if (error) return null
 
     return (
         <Menu.Root>
             <Menu.Trigger asChild>
-                <Button variant="outline" size="sm"><BsChevronDown/>{selectedPlatform !== null ? `Platform: ${selectedPlatform.name}` : "Platform"}</Button>
+                <Button variant="outline" size="sm"><BsChevronDown/>{selectedPlatform !== undefined ? `Platform: ${selectedPlatform?.name}` : "Platform"}</Button>
             </Menu.Trigger>
             <Portal>
                 <Menu.Positioner>
