@@ -12,7 +12,6 @@ export interface SortOrder {
 }
 
 function SortSelector({setSort, sort}: Props) {
-    //const sortList = ["Relevance", "Date added", "Name", "Release Date", "Popularity", "Average rating"]
     const sortList: SortOrder[] = [
         {value: '', label: 'Relevance'},
         {value: '-added', label: 'Date added'},
@@ -21,9 +20,8 @@ function SortSelector({setSort, sort}: Props) {
         {value: '-metacritic', label: 'Popularity'},
         {value: '-rating', label: 'Average rating'},
     ]
-    //const [sort, setSort] = useState(null);
-    //if (error) return null
-    console.log(sort);
+
+    //console.log(sort);
 
     return (
         <Menu.Root>

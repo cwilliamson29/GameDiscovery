@@ -12,7 +12,7 @@ interface Props {
 }
 
 const GameCard = ({game, selectedPlatform}: Props) => {
-    console.log(game.parent_platforms)
+    //console.log(game.parent_platforms)
     return (
         <GameCardContainer>
             <Card.Root>
@@ -21,7 +21,6 @@ const GameCard = ({game, selectedPlatform}: Props) => {
                     <Heading>{game.name}</Heading>
                     <HStack justifyContent="space-between">
                         {game.parent_platforms !== undefined && <PlatformIconList platforms={game.parent_platforms.map(p => p.platform)} selectedPlatform={selectedPlatform}/>}
-
                         <CriticScore score={game.metacritic}/>
                     </HStack>
 
