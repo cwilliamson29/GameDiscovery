@@ -12,7 +12,7 @@ interface Props {
 }
 
 const GameCard = ({game, selectedPlatform}: Props) => {
-
+    //console.log(game)
     return (
         <GameCardContainer>
             <Card.Root>
