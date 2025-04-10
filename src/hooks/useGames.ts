@@ -21,7 +21,10 @@ const useGenres = (gameQuery: GameQuery) =>
         params: {
             genres: gameQuery.genre?.id,
             parent_platforms: gameQuery.platform?.id,
+            ordering: gameQuery.sort?.value,
         }
+        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+        // @ts-expect-error
     }, [gameQuery]);
 
 export default useGenres

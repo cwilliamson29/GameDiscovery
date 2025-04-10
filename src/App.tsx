@@ -7,11 +7,12 @@ import NavBar from "@/components/NavBar.tsx";
 import GameGrid from "@/components/GameGrid.tsx";
 import GenreList from "@/components/GenreList.tsx";
 import PlatformSelector from "@/components/PlatformSelector.tsx";
-import SortSelector from "@/components/SortSelector.tsx";
+import SortSelector, {SortOrder} from "@/components/SortSelector.tsx";
 
 export interface GameQuery {
     genre: Genre | null;
     platform: Platform | null;
+    sort: SortOrder | null;
 }
 
 function App() {
@@ -41,7 +42,7 @@ function App() {
             <GridItem area="main" bg="">
                 <HStack>
                     <PlatformSelector onSelectPlatform={(platform) => setGameQuery({...gameQuery, platform})} selectedPlatform={gameQuery.platform}/>
-                    <SortSelector/>
+                    <SortSelector setSort={(sort) => setGameQuery({...gameQuery, sort})} sort={gameQuery.sort}/>
                 </HStack>
 
                 <GameGrid gameQuery={gameQuery}/>
