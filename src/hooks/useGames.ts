@@ -22,6 +22,7 @@ const useGenres = (gameQuery: GameQuery) =>
             genres: gameQuery.genre?.id,
             parent_platforms: gameQuery.platform?.id,
             ordering: gameQuery.sort?.value,
+            search: gameQuery?.searchText
         }
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-expect-error
