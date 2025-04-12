@@ -1,5 +1,5 @@
 import useGenres, {Genre} from "@/hooks/useGenres.ts";
-import {Box, Button, HStack, Image, Spinner} from "@chakra-ui/react";
+import {Box, Button, Heading, HStack, Image, Spinner} from "@chakra-ui/react";
 import getCroppedImageUrl from "@/services/image-url.ts";
 
 interface Props {
@@ -16,6 +16,7 @@ function GenreList({onSelectGenre, selectedGenre}: Props) {
     if (loading) return <Spinner/>
     return (
         <Box as="ul">
+            <Heading>Genre</Heading>
             {data.map((genre: Genre) =>
                 <li key={genre.id}>
                     <HStack paddingY={1}>
