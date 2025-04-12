@@ -8,12 +8,11 @@ interface Props {
 }
 
 function GenreList({onSelectGenre, selectedGenre}: Props) {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-expect-error
     const {data, loading, error} = useGenres()
 
     if (error) return null
     if (loading) return <Spinner/>
+
     return (
         <Box as="ul">
             <Heading>Genre</Heading>
