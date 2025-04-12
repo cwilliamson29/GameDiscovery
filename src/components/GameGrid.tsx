@@ -15,16 +15,16 @@ function GameGrid({gameQuery}: Props) {
     // @ts-expect-error
     const {data, error, loading} = useGames(gameQuery)
     const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+    if (error) return <Text>{error}</Text>
+    
     return (
-        <div>
-            {error && <Text>{error}</Text>}
-            <SimpleGrid columns={{sm: 1, md: 2, lg: 3, xl: 4}} gap={6} padding={5}>
-                {loading && skeletons.map(skeleton => <GameCardSkeleton key={skeleton}/>)}
-                {data.map((game: Game) => (
-                    <GameCard key={game.id} game={game} selectedPlatform={gameQuery?.platform}/>
-                ))}
-            </SimpleGrid>
-        </div>
+        <SimpleGrid columns={{sm: 1, md: 2, lg: 3, xl: 4}} gap={6} padding={5}>
+            {loading && skeletons.map(skeleton => <GameCardSkeleton key={skeleton}/>)}
+            {data.map((game: Game) => (
+                <GameCard key={game.id} game={game} selectedPlatform={gameQuery?.platform}/>
+            ))}
+        </SimpleGrid>
     )
 }
 
