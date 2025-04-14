@@ -21,8 +21,6 @@ function SortSelector({setSort, sort}: Props) {
         {value: '-rating', label: 'Average rating'},
     ]
 
-    //console.log(sort);
-
     return (
         <Menu.Root>
             <Menu.Trigger asChild>
